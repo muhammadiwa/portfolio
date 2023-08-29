@@ -40,13 +40,19 @@ Route::group(['middleware' => ['admin']], function () {
 
     // Home
     Route::get('admin/home', [HomeAdminController::class, 'index']);
+    Route::get('admin/home/create', [HomeAdminController::class, 'create']);
     Route::post('admin/home/store', [HomeAdminController::class, 'store']);
+    Route::get('admin/home/edit/{id}', [HomeAdminController::class, 'edit']);
     Route::put('admin/home/update{id}', [HomeAdminController::class, 'update']);
-    Route::delete('admin/home/destroy{id}', [HomeAdminController::class, 'destroy']);
+    Route::delete('admin/home/destroy/{id}', [HomeAdminController::class, 'destroy']);
 
-Route::get('admin/about', [AboutController::class, 'index']);
-Route::get('about', [AboutController::class, 'create']);
-Route::post('about', [AboutController::class, 'store']);
+    // About
+    Route::get('admin/about', [AboutController::class, 'index']);
+    Route::get('admin/about/create', [AboutController::class, 'create']);
+    Route::post('admin/about/store', [AboutController::class, 'store']);
+    Route::get('admin/about/edit/{id}', [AboutController::class, 'edit']);
+    Route::put('admin/about/update{id}', [AboutController::class, 'update'])->name('about.update');
+    Route::delete('admin/about/destroy/{id}', [AboutController::class, 'destroy']);
 
 Route::get('admin/skill', [SkillController::class, 'index']);
 

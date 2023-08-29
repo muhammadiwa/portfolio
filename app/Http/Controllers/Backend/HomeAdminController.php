@@ -15,6 +15,7 @@ class HomeAdminController extends Controller
     public function index()
     {
         $data = Home::all(); // Retrieve all records from the Home model
+        // dd($data);
         return view('backend.home.index', compact('data'));
     }
 
@@ -23,7 +24,7 @@ class HomeAdminController extends Controller
      */
     public function create()
     {
-        // return view('backend.home.create');
+        return view('backend.home.create');
     }
 
     /**
@@ -36,20 +37,21 @@ class HomeAdminController extends Controller
             'name' => 'required|string',
             'description' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi file gambar
-            'instagram' => 'nullable|url',
-            'linkedin' => 'nullable|url',
-            'twitter' => 'nullable|url',
-            'github' => 'nullable|url',
-            'facebook' => 'nullable|url',
+            'instagram' => 'nullable',
+            'linkedin' => 'nullable',
+            'twitter' => 'nullable',
+            'github' => 'nullable',
+            'facebook' => 'nullable',
         ]);
 
         // Handle image upload
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/home', $imageName); // Store the image in the public/home directory
+            $imageName = now()->format('Ymd') . '_' . $image->getClientOriginalName(); // Format nama sesuai permintaan
+            $image->storeAs('public/uploads/home', $imageName); // Store the image in the public/uploads/home directory
             $validatedData['image'] = $imageName; // Set the image field in the database to the image filename
         }
+        // dd($validatedData);
 
         // Create a new Home model instance and save it to the database
         Home::create($validatedData);
@@ -69,15 +71,13 @@ class HomeAdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $data = Home::findOrFail($id);
+        return view('backend.home.edit', compact('data'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         // Validate the incoming request data
         $validatedData = $request->validate([
@@ -91,27 +91,28 @@ class HomeAdminController extends Controller
             'facebook' => 'nullable|url',
         ]);
 
+        // Find the Home model instance by ID
+        $home = Home::findOrFail($id);
+
         // Handle image upload
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/home', $imageName); // Store the image in the public/home directory
-            $validatedData['image'] = $imageName; // Set the image field in the database to the image filename
+            $imageName = now()->format('Ymd') . '_' . $image->getClientOriginalName();
+            $image->storeAs('public/uploads/home', $imageName);
+            $validatedData['image'] = $imageName;
         }
 
         // Update the Home model instance with the new data
-        Home::where('id', $id)->update($validatedData);
+        $home->update($validatedData);
 
         return redirect('admin/home')->with('success', 'Data updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         // Find the Home model instance by ID and delete it
-        Home::findOrFail($id)->delete();
+        $home = Home::findOrFail($id);
+        $home->delete();
 
         return redirect('admin/home')->with('success', 'Data deleted successfully.');
     }

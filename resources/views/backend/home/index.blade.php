@@ -7,16 +7,17 @@
         <div class="card mb-4">
             <div class="card-header">
                 @yield('menu')
-                <a href="#" id="showCreateModalBtn" data-bs-toggle="modal" data-bs-target="#createModal" class="btn btn-primary btn-md shadow-sm text-secondary-100 fw-bold float-end"><i
+                <a href="{{ url('admin/home/create') }}" id="createHome" class="btn btn-primary btn-md shadow-sm text-secondary-100 fw-bold float-end"><i
                     class="bi bi-plus pe-2"></i>Tambah Data</a>
             </div>
             <div class="card-body">
+                @include('message')
                 <div class="table-responsive">
                     <table id="data-table" class="table table-bordered table-striped table-hover">
                         <thead class="text-uppercase">
                             <tr class="tb-vh-25 xs-text-md">
                                 <th scope="col">No</th>
-                                <th scope="col"> Name</th>
+                                <th scope="col">Name</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Instagram</th>
@@ -28,7 +29,33 @@
                             </tr>
                         </thead>
                         <tbody class="align-middle">
-                            
+                            @foreach($data as $item) {{-- Mengganti $data dengan variabel yang berisi data yang akan ditampilkan --}}
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->description }}</td>
+                                    <td>
+                                        @if($item->image)
+                                            <img src="{{ asset('storage/uploads/home/' . $item->image) }}" alt="{{ $item->name }}" class="avatar rounded-3" width="100">
+                                        @else
+                                            <img src="{{ asset('assets/img/avatar.jpg') }}" alt="avatar rounded-3" width="100">
+                                        @endif
+                                    </td>
+                                    <td>{{ $item->instagram }}</td>
+                                    <td>{{ $item->linkedin }}</td>
+                                    <td>{{ $item->twitter }}</td>
+                                    <td>{{ $item->github }}</td>
+                                    <td>{{ $item->facebook }}</td>
+                                    <td>
+                                        <a href="{{ url('admin/home/edit', ['id' => $item->id]) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i></a>
+                                        <form action="{{ url('admin/home/destroy', ['id' => $item->id]) }}" method="POST" style="display: inline-block;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="bi bi-trash3-fill"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -49,7 +76,7 @@
                         </div>
                         <div class="float-end">
                             <h5 class="fw-bold text-secondary-700">Are you sure?</h5>
-                            <span class="md-text-rg text-secondary-500">Warning! Deleting this User is
+                            <span class="md-text-rg text-secondary-500">Warning! Deleting this Data is
                                 permanent,This operation can not
                                 be
                                 reversed.</span>
@@ -206,92 +233,6 @@
             });
         });
 
-    </script>
-    <script>
-        // Script untuk menampilkan data dari server ke tabel
-        function fetchData() {
-            $.ajax({
-                url: '/admin/home', // Ganti URL sesuai dengan endpoint Anda
-                type: 'GET',
-                dataType: 'json',
-                success: function (data) {
-                    // Menghapus semua baris dari tabel
-                    $('#data-table tbody').empty();
-    
-                    // Loop melalui data dan menambahkannya ke tabel
-                    $.each(data, function (index, item) {
-                        var newRow = $('<tr>');
-                        newRow.append('<td>' + (index + 1) + '</td>');
-                        newRow.append('<td>' + item.name + '</td>');
-                        newRow.append('<td>' + item.description + '</td>');
-                        newRow.append('<td>' + item.image + '</td>');
-                        newRow.append('<td>' + item.instagram + '</td>');
-                        newRow.append('<td>' + item.linkedin + '</td>');
-                        newRow.append('<td>' + item.twitter + '</td>');
-                        newRow.append('<td>' + item.github + '</td>');
-                        newRow.append('<td>' + item.facebook + '</td>');
-                        // Tambahkan kolom lain di sini sesuai dengan data yang Anda butuhkan
-                        newRow.append('<td><button class="btn btn-primary btn-sm edit-btn" data-id="' + item.id + '">Edit</button> ' +
-                            '<button class="btn btn-danger btn-sm delete-btn" data-id="' + item.id + '">Delete</button></td>');
-                        $('#data-table tbody').append(newRow);
-                    });
-                }
-            });
-        }
-    
-        // Panggil fetchData saat halaman dimuat
-        $(document).ready(function () {
-            fetchData();
-        });
-    
-        // Script untuk menampilkan modal Create
-        $('#showCreateModalBtn').click(function () {
-            $('#createModal').modal('show');
-        });
-    
-        // Script untuk menampilkan modal Edit
-        $('#data-table').on('click', '.edit-btn', function () {
-            var id = $(this).data('id');
-            $.ajax({
-                url: '/admin/home/' + id + '/edit', // Ganti URL sesuai dengan endpoint Edit Anda
-                type: 'GET',
-                dataType: 'json',
-                success: function (data) {
-                    // Isi modal Edit dengan data yang diterima dari server
-                    $('#editModal #name').val(data.name);
-                    $('#editModal #description').val(data.description);
-                    $('#editModal #image').val(data.image);
-                    $('#editModal #instagram').val(data.instagram);
-                    $('#editModal #linkedin').val(data.linkedin);
-                    $('#editModal #twitter').val(data.twitter);
-                    $('#editModal #github').val(data.github);
-                    $('#editModal #facebook').val(data.facebook);
-                    // Isi kolom lain sesuai dengan data yang Anda butuhkan
-                    // Tambahkan kolom lain di sini sesuai dengan data yang Anda butuhkan
-                    $('#editModal').modal('show');
-                }
-            });
-        });
-    
-        // Script untuk menampilkan modal Delete
-        $('#data-table').on('click', '.delete-btn', function () {
-            var id = $(this).data('id');
-            $('#confirmModal').modal('show');
-    
-            // Menambahkan aksi ke tombol Delete dalam modal konfirmasi Delete
-            $('#confirmModal .btn-danger').click(function () {
-                $.ajax({
-                    url: '/admin/home/destroy' + id, // Ganti URL sesuai dengan endpoint Delete Anda
-                    type: 'DELETE',
-                    success: function () {
-                        // Tutup modal konfirmasi Delete
-                        $('#confirmModal').modal('hide');
-                        // Perbarui tabel dengan data terbaru
-                        fetchData();
-                    }
-                });
-            });
-        });
     </script>
 @endsection
 

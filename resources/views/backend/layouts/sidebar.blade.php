@@ -32,7 +32,7 @@
                 <a href="{{ url('admin/skill') }}" class="nav__link @if (Request::segment(2) == 'skill')
                     active
                 @endif">
-                    <i class='bx bx-grid-alt nav__icon bx-tada-hover'></i>
+                    <i class='bi bi-code-square nav__icon bx-tada-hover'></i>
                     <span class="nav__name">Skill</span>
                 </a>
 
