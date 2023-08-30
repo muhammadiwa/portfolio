@@ -24,15 +24,15 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="description">Description</label>
-                            <textarea name="description" class="form-control" id="description" rows="3" value="{{ $data->description }}"></textarea>
+                            <textarea name="description" class="form-control" id="description" rows="3">{{ $data->description }}</textarea>
                         </div>
                         <div class="form-group mb-3">
                             <label for="description2">Description 2</label>
-                            <textarea name="description2" class="form-control" id="description2" rows="3" value="{{ $data->description2 }}"></textarea>
+                            <textarea name="description2" class="form-control" id="description2" rows="3">{{ $data->description2 }}</textarea>
                         </div>
                         <div class="form-group mb-3">
                             <label for="description3">Description 3</label>
-                            <textarea name="description3" class="form-control" id="description3" rows="3" value="{{ $data->description3 }}"></textarea>
+                            <textarea name="description3" class="form-control" id="description3" rows="3">{{ $data->description3 }}</textarea>
                         </div>
                         <div class="float-end mb-3">
                             <button class="btn btn-primary me-1 btn-md" type="submit">Update</button>

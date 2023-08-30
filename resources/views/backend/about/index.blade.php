@@ -14,7 +14,7 @@
                 @include('message')
                 <div class="table-responsive">
                     <table id="data-table" class="table table-bordered table-striped table-hover">
-                        <thead class="text-uppercase">
+                        <thead class="text-uppercase text-center">
                             <tr class="tb-vh-25 xs-text-md">
                                 <th scope="col">No</th>
                                 <th scope="col">Jabatan</th>
@@ -40,7 +40,7 @@
                                     <td>{{ $item->description }}</td>
                                     <td>{{ $item->description2 }}</td>
                                     <td>{{ $item->description3 }}</td>
-                                    <td>
+                                    <td class="text-center">
                                         <a href="{{ url('admin/about/edit', ['id' => $item->id]) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i></a>
                                         <form action="{{ url('admin/about/destroy', ['id' => $item->id]) }}" method="POST" style="display: inline-block;">
                                             @csrf

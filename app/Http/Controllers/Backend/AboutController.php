@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
 use App\Models\About;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class AboutController extends Controller
 {
@@ -79,7 +80,7 @@ class AboutController extends Controller
         // Validate the incoming request data
         $validatedData = $request->validate([
             'title' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi file gambar
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi file gambar
             'description' => 'nullable',
             'description2' => 'nullable',
             'description3' => 'nullable',
@@ -91,12 +92,20 @@ class AboutController extends Controller
         // Get the old image filename from the database
         $oldImage = $about->image;
 
-        // Handle image upload
+        // Handle image upload only if a new image is provided
         if ($request->hasFile('image')) {
+            // Upload the new image
             $image = $request->file('image');
             $imageName = now()->format('Ymd') . '_' . $image->getClientOriginalName();
             $image->storeAs('public/uploads/about', $imageName);
+
+            // Set the new image filename in the validated data
             $validatedData['image'] = $imageName;
+
+            // Delete the old image if it's different from the new one
+            if ($oldImage !== $validatedData['image']) {
+                Storage::delete('public/uploads/about/' . $oldImage);
+            }
         } else {
             // If no new image is provided, use the old image filename
             $validatedData['image'] = $oldImage;
@@ -105,11 +114,6 @@ class AboutController extends Controller
 
         // Update a new about model instance and save it to the database
         $about->update($validatedData);
-
-        // Delete the old image if it's different from the new one
-        if ($oldImage !== $validatedData['image']) {
-            Storage::delete('public/uploads/about/' . $oldImage);
-        }
 
         return redirect('admin/about')->with('success', 'Data updated successfully.');
     }

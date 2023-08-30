@@ -17,6 +17,9 @@
     <!-- CSS Libraries -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{ url('public/template/node_modules/bootstrap-icons/font/bootstrap-icons.css') }}">
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+
+    
 
 </head>
 

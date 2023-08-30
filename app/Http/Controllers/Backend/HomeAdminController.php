@@ -94,12 +94,26 @@ class HomeAdminController extends Controller
         // Find the Home model instance by ID
         $home = Home::findOrFail($id);
 
-        // Handle image upload
+        // Get the old image filename from the database
+        $oldImage = $home->image;
+
+        // Handle image upload only if a new image is provided
         if ($request->hasFile('image')) {
+            // Upload the new image
             $image = $request->file('image');
             $imageName = now()->format('Ymd') . '_' . $image->getClientOriginalName();
             $image->storeAs('public/uploads/home', $imageName);
+
+            // Set the new image filename in the validated data
             $validatedData['image'] = $imageName;
+
+            // Delete the old image if it's different from the new one
+            if ($oldImage !== $validatedData['image']) {
+                Storage::delete('public/uploads/home/' . $oldImage);
+            }
+        } else {
+            // If no new image is provided, use the old image filename
+            $validatedData['image'] = $oldImage;
         }
 
         // Update the Home model instance with the new data
