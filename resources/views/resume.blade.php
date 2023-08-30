@@ -3,8 +3,7 @@
 
     <div class="section-title">
         <h2>Resume</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-    </div>
+<p>Selamat datang di halaman resume saya. Saya adalah seorang junior yang sedang memulai perjalanan karir saya dalam dunia kerja sebagai Programmer. Saya memiliki latar belakang pendidikan yang kuat dan semangat untuk belajar serta berkembang lebih lanjut dalam pekerjaan saya. Meskipun saya masih di tahap awal karir, saya siap untuk memberikan kontribusi positif dan belajar dari setiap kesempatan yang ada.</p>    </div>
 
     <div class="row">
         <div class="col-lg-6">

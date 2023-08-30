@@ -14,6 +14,11 @@ class Home extends Model
     protected $fillable = [
         'id',
         'name',
+        'email',
+        'tlp',
+        'birthday',
+        'address,'
+        'degre,'
         'description',
         'image',
         'instagram',

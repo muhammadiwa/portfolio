@@ -3,8 +3,7 @@
 
     <div class="section-title">
         <h2>Portfolio</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-    </div>
+        <p>Sebagai seorang Junior Web Developer, saya senang berbagi beberapa proyek awal saya dalam dunia pengembangan web. Ini adalah langkah pertama saya dalam membangun karir dan kemampuan saya di bidang ini. Saya sangat antusias untuk terus belajar dan berkembang. Di bawah ini adalah beberapa proyek yang telah saya kerjakan:</p>    </div>
 
     <div class="row">
         <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">

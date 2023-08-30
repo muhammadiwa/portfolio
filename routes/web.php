@@ -83,7 +83,13 @@ Route::group(['middleware' => ['admin']], function () {
     Route::put('admin/experience/update{id}', [ResumeController::class, 'experienceupdate'])->name('experience.update');
     Route::delete('admin/experience/destroy/{id}', [ResumeController::class, 'experiencedestroy'])->name('experience.destroy');
 
-Route::get('admin/portfolio', [PortfolioController::class, 'index']);
+    // Portfolio
+    Route::get('admin/portfolio', [PortfolioController::class, 'index'])->name('portfolio.index');
+    Route::get('admin/portfolio/create', [PortfolioController::class, 'create'])->name('portfolio.create');
+    Route::post('admin/portfolio/store', [PortfolioController::class, 'store'])->name('portfolio.store');
+    Route::get('admin/portfolio/edit/{id}', [PortfolioController::class, 'edit'])->name('portfolio.edit');
+    Route::put('admin/portfolio/update/{id}', [PortfolioController::class, 'update'])->name('portfolio.update');
+    Route::delete('admin/portfolio/destroy/{id}', [PortfolioController::class, 'destroy'])->name('portfolio.destroy');
 
 Route::get('admin/contact', [ContactController::class, 'index']);
 

@@ -3,8 +3,7 @@
 
     <div class="section-title">
         <h2>About Me</h2>
-        <p>Saya adalah seorang Backend Developer yang berdedikasi untuk menciptakan solusi web yang efisien dan handal. Saya memiliki lebih dari 5 tahun pengalaman dalam pengembangan aplikasi web dan server. Keahlian saya meliputi PHP, Laravel, Node.js, dan MySQL. Saya memiliki gelar Sarjana Teknik Informatika dan selalu siap untuk menghadirkan solusi teknologi yang inovatif.</p>
-    </div>
+        <p>Saya adalah seorang Junior Web Developer yang bersemangat untuk membangun karir di dunia pengembangan web. Dengan latar belakang pendidikan dalam bidang Teknik Informatika, saya telah memulai perjalanan saya dalam memahami dunia pemrograman dan teknologi. Saya memiliki pengetahuan dasar dalam bahasa pemrograman seperti PHP dan JavaScript serta pengalaman dalam penggunaan Laravel dan Node.js.</p>    </div>
 
     <div class="row">
         <div class="col-lg-4">
@@ -13,28 +12,27 @@
         <div class="col-lg-8 pt-4 pt-lg-0 content">
         <h3>Backend Developer.</h3>
         <p class="fst-italic">
-            Saya adalah seorang Backend Developer yang berdedikasi, berpengalaman, dan selalu bersemangat untuk menghadirkan solusi teknologi yang inovatif. Saya memiliki pengetahuan mendalam dalam pengembangan aplikasi web dan server, serta mampu bekerja dengan berbagai bahasa pemrograman dan framework untuk menciptakan solusi yang efisien dan handal.
+        Sebagai seorang Junior Web Developer, saya memiliki semangat yang tinggi untuk belajar dan tumbuh dalam industri ini. Saya percaya bahwa teknologi adalah kekuatan yang dapat mengubah dunia, dan saya berkomitmen untuk menjadi bagian dari perubahan tersebut.
         </p>
+    <div class="row">        </p>
         <div class="row">
             <div class="col-lg-6">
             <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May 1995</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+123 456 7890</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York, USA</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>2 October 1994</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+6281294075314</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>South Jakarta, Indonesia</span></li>
             </ul>
             </div>
             <div class="col-lg-6">
             <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>30</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Master</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>email@example.com</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>28</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelor Degre</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>muhammad.iwa94@gmail.com</span></li>
             </ul>
             </div>
         </div>
         <p>
-            Saya percaya bahwa teknologi adalah alat yang kuat untuk mencapai tujuan bisnis, dan saya selalu berusaha untuk memberikan nilai tambah melalui pengembangan yang berkualitas tinggi. Saya senang bekerja dalam tim dan siap untuk menghadirkan solusi teknologi yang memenuhi kebutuhan Anda.
+            Saya yakin bahwa dengan kerja keras, tekad, dan semangat untuk terus belajar, saya akan menjadi seorang Web Developer yang mampu menciptakan solusi web yang bermanfaat dan inovatif. Saya siap untuk terus belajar dan berkembang dalam pengembangan web. Saya senang bekerja dalam tim dan berkontribusi dalam menciptakan solusi yang bermanfaat.
         </p>
         </div>
     </div>

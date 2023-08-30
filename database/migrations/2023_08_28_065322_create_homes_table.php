@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('homes', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
+            $table->string('name');
+            $table->string('email');
+            $table->string('tlp', 15);
+            $table->date('birthday')->nullable();
+            $table->text('address')->nullable();
+            $table->string('degre')->nullable();
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->string('instagram')->nullable()->default('https://instagram./');

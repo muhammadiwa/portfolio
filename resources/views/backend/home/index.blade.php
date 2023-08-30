@@ -18,6 +18,11 @@
                             <tr class="tb-vh-25 xs-text-md">
                                 <th scope="col">No</th>
                                 <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">No.Hp</th>
+                                <th scope="col">Birthday</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Degree</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Instagram</th>
@@ -33,6 +38,11 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->name }}</td>
+                                    <td>{{ $item->email }}</td>
+                                    <td>{{ $item->tlp }}</td>
+                                    <td>{{ $item->birthday }}</td>
+                                    <td>{{ $item->address }}</td>
+                                    <td>{{ $item->degre }}</td>
                                     <td>{{ $item->description }}</td>
                                     <td>
                                         @if($item->image)

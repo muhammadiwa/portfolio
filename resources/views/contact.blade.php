@@ -12,19 +12,19 @@
             <div class="address">
             <i class="bi bi-geo-alt"></i>
             <h4>Location:</h4>
-            <p>A108 Adam Street, New York, NY 535022</p>
+            <p>Jl. Bri Radio Dalam No.39 Kebayoan Baru, Jakarta Selatan</p>
             </div>
 
             <div class="email">
             <i class="bi bi-envelope"></i>
             <h4>Email:</h4>
-            <p>info@example.com</p>
+            <p>muhammad.iwa94@gmail.com</p>
             </div>
 
             <div class="phone">
             <i class="bi bi-phone"></i>
             <h4>Call:</h4>
-            <p>+1 5589 55488 55s</p>
+            <p>+6281294075314</p>
             </div>
 
         </div>
